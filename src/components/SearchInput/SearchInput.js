@@ -5,10 +5,16 @@ import { COLORS } from '../../constants';
 import VisuallyHidden from '../VisuallyHidden';
 import Icon from '../Icon';
 
+
+/*
+I had to remove this component from before <Input> as it was not
+visually hidden, despite the name
+*/
+
+<VisuallyHidden>Search</VisuallyHidden>
 const SearchInput = ({ label, ...delegated }) => {
   return (
     <Label>
-      <VisuallyHidden>Search</VisuallyHidden>
       <Input {...delegated} placeholder="Search…" />
       <SearchIcon id="search" strokeWidth={1} size={16} />
     </Label>
