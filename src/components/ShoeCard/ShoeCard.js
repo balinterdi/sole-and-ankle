@@ -61,7 +61,11 @@ const ImageWrapper = styled.div`
   position: relative;
 `;
 
-const Image = styled.img``;
+const Image = styled.img`
+  // object-fit: contain;
+  width: 350px;
+`;
+
 
 const Row = styled.div`
   font-size: 1rem;
