@@ -18,6 +18,7 @@ const Wrapper = styled.div`
   display: flex;
   flex-wrap: wrap;
   column-gap: 36px;
+  row-gap: 36px;
   // width: calc(3 * (350px + 36px));
 `;
 

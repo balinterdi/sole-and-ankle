@@ -30,12 +30,23 @@ const ShoeCard = ({
     : isNewShoe(releaseDate)
       ? 'new-release'
       : 'default'
+  
+  const displayedVariant = variant === 'default'
+    ? ''
+    : variant === 'new-release'
+      ? 'Just released!'
+      : 'Sale';
+
+  const displayedSalePrice = salePrice
+    ? <SalePrice>{formatPrice(salePrice)}</SalePrice>
+    : '';
 
   return (
     <Link href={`/shoe/${slug}`}>
       <Wrapper>
         <ImageWrapper>
           <Image alt="" src={imageSrc} />
+          <Variant variant={variant}>{displayedVariant}</Variant>
         </ImageWrapper>
         <Spacer size={12} />
         <Row>
@@ -44,6 +55,7 @@ const ShoeCard = ({
         </Row>
         <Row>
           <ColorInfo>{pluralize('Color', numOfColors)}</ColorInfo>
+          {displayedSalePrice}
         </Row>
       </Wrapper>
     </Link>
@@ -66,9 +78,28 @@ const Image = styled.img`
   width: 350px;
 `;
 
+const variantColors = {
+  default: 'transparent',
+  'on-sale': '#C5295D',
+  'new-release': '#6868D9',
+};
+
+const Variant = styled.div`
+  position: absolute;
+  right: -3px;
+  top: 10px;
+  color: white;
+  padding: 7px 9px 9px 11px;
+  border-radius: 2px;
+
+  background-color: ${props => variantColors[props.variant]}
+`;
+
 
 const Row = styled.div`
   font-size: 1rem;
+  display: flex;
+  justify-content: space-between;
 `;
 
 const Name = styled.h3`
