@@ -37,10 +37,6 @@ const ShoeCard = ({
       ? 'Just released!'
       : 'Sale';
 
-  const displayedSalePrice = salePrice
-    ? <SalePrice>{formatPrice(salePrice)}</SalePrice>
-    : '';
-
   return (
     <Link href={`/shoe/${slug}`}>
       <Wrapper>
@@ -55,7 +51,9 @@ const ShoeCard = ({
         </Row>
         <Row>
           <ColorInfo>{pluralize('Color', numOfColors)}</ColorInfo>
-          {displayedSalePrice}
+          {variant === 'on-sale' ? (
+            <SalePrice>{formatPrice(salePrice)}</SalePrice>
+          ) : undefined}
         </Row>
       </Wrapper>
     </Link>
