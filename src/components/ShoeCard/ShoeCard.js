@@ -75,7 +75,7 @@ const ImageWrapper = styled.div`
 
 const Image = styled.img`
   // object-fit: contain;
-  width: 350px;
+  width: 100%;
 `;
 
 const variantColors = {
